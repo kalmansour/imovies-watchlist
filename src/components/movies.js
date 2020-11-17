@@ -12,3 +12,5 @@ const movies = [
     title: "Power",
   },
 ];
+
+export default movies;
