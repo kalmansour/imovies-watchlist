@@ -9,8 +9,15 @@ class MovieStore {
       movies: observable,
       deleteMovie: action,
       watchedMovie: action,
+      addMovie: action,
     });
   }
+
+  addMovie = (newMovie) => {
+    newMovie.id = this.movies[this.movies.length - 1].id + 1;
+    newMovie.watched = false;
+    this.movies.push(newMovie);
+  };
 
   deleteMovie = (_movie) => {
     this.movies = this.movies.filter((movie) => movie !== _movie);
