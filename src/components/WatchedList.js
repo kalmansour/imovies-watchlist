@@ -1,16 +1,23 @@
+import movieStore from "../stores/movieStore";
+import { observer } from "mobx-react";
+
 //Styles
 import { ListWrapper } from "../styles";
 
-//Recieve event from MovieList "WatchedList" to add movie to watched list
-// Same styling for both lists
-//Add MovieWatchedItem
+//Components
+import MovieItem from "./MovieItem";
 
-const WatchedList = ({}) => {
+const WatchedList = () => {
+  const watchedList = movieStore.watchedmovies.map((watchedmovie) => (
+    <MovieItem movie={watchedmovie} />
+  ));
+
   return (
     <ListWrapper>
       <h1>Watched List</h1>
+      {watchedList}
     </ListWrapper>
   );
 };
 
-export default WatchedList;
+export default observer(WatchedList);

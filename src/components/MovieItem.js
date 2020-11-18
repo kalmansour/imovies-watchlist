@@ -1,9 +1,5 @@
 const MovieItem = ({ movie }) => {
-  return (
-    <>
-      <p>{movie.title}</p>
-    </>
-  );
+  return <p>{movie.title}</p>;
 };
 
 export default MovieItem;
