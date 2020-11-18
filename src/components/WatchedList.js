@@ -8,9 +8,9 @@ import { ListWrapper } from "../styles";
 import MovieItem from "./MovieItem";
 
 const WatchedList = () => {
-  const watchedList = movieStore.watchedmovies.map((watchedmovie) => (
-    <MovieItem movie={watchedmovie} />
-  ));
+  const watchedList = movieStore.movies
+    .filter((movie) => movie.watched === true)
+    .map((movie) => <MovieItem movie={movie} />);
 
   return (
     <ListWrapper>

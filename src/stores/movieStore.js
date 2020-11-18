@@ -1,17 +1,25 @@
-import { makeObservable, observable } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 import movies from "../components/movies";
-import watchedmovies from "../components/watchedmovies";
 
 class MovieStore {
   movies = movies;
-  watchedmovies = watchedmovies;
 
   constructor() {
     makeObservable(this, {
       movies: observable,
-      watchedmovies: observable,
+      deleteMovie: action,
+      watchedMovie: action,
     });
   }
+
+  deleteMovie = (_movie) => {
+    this.movies = this.movies.filter((movie) => movie !== _movie);
+  };
+
+  watchedMovie = (movieWatched) => {
+    const movie = this.movies.find((movie) => movie.id === movieWatched.id);
+    movie.watched = !movie.watched;
+  };
 }
 
 const movieStore = new MovieStore();

@@ -8,9 +8,9 @@ import { observer } from "mobx-react";
 import { ListWrapper } from "../styles";
 
 const MovieList = () => {
-  const movieList = movieStore.movies.map((movie) => (
-    <MovieItem movie={movie} />
-  ));
+  const movieList = movieStore.movies
+    .filter((movie) => movie.watched === false)
+    .map((movie) => <MovieItem movie={movie} />);
 
   return <ListWrapper>{movieList}</ListWrapper>;
 };
