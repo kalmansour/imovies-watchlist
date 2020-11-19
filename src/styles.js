@@ -10,3 +10,10 @@ export const ListWrapper = styled.div`
     text-align: center;
   }
 `;
+
+export const SearchBarStyled = styled.input`
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 40%;
+`;

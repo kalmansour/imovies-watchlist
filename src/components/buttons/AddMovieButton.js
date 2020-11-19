@@ -1,23 +1,29 @@
 import movieStore from "../../stores/movieStore";
+import { useState } from "react";
 
 const AddMovieButton = () => {
+  const [movie, setMovie] = useState({
+    title: "",
+    watched: false,
+  });
+
   // Revise this
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    movieStore.addMovie();
+  const handleChange = (event) => {
+    setMovie({ ...movie, title: event.target.value });
   };
 
-  const handleChange = (event) => {
-    movieStore.addMovie(event.target.value);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    movieStore.addMovie(movie);
   };
 
   return (
     <div>
       <input
-        name="name"
+        name="title"
         type="text"
-        className="form-control"
         onChange={handleChange}
+        // className="form-control"
       />
       <button onClick={handleSubmit}>Add</button>
     </div>

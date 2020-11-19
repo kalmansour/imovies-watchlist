@@ -1,6 +1,7 @@
 import movieStore from "../stores/movieStore";
 import MovieItem from "./MovieItem";
 import { observer } from "mobx-react";
+import SearchBar from "./SearchBar";
 
 //To watch
 
@@ -8,11 +9,17 @@ import { observer } from "mobx-react";
 import { ListWrapper } from "../styles";
 
 const MovieList = () => {
+  const [query, setQuery] = useState("");
+
   const movieList = movieStore.movies
     .filter((movie) => movie.watched === false)
     .map((movie) => <MovieItem movie={movie} />);
 
-  return <ListWrapper>{movieList}</ListWrapper>;
+  return;
+  <>
+    <SearchBar setQuery={setQuery} />
+    <ListWrapper>{movieList}</ListWrapper>
+  </>;
 };
 
 export default observer(MovieList);
