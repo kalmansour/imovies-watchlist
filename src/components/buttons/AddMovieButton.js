@@ -1,7 +1,8 @@
 import movieStore from "../../stores/movieStore";
 import { useState } from "react";
+import { AddMovieButton, AddMovieStyled } from "../../styles";
 
-const AddMovieButton = () => {
+const AddMovie = () => {
   const [movie, setMovie] = useState({
     title: "",
     watched: false,
@@ -9,7 +10,10 @@ const AddMovieButton = () => {
 
   // Revise this
   const handleChange = (event) => {
-    setMovie({ ...movie, title: event.target.value });
+    setMovie({
+      ...movie,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = (event) => {
@@ -18,13 +22,24 @@ const AddMovieButton = () => {
   };
 
   return (
-    <div>
-      <input name="title" type="text" onChange={handleChange} />
-      <button type="button" class="btn btn-info" onClick={handleSubmit}>
+    <AddMovieStyled>
+      <input
+        placeholder="Add movie name..."
+        name="title"
+        type="text"
+        onChange={handleChange}
+      />
+      <input
+        placeholder="Add image url..."
+        name="image"
+        type="text"
+        onChange={handleChange}
+      />
+      <AddMovieButton type="button" class="btn btn-info" onClick={handleSubmit}>
         Add
-      </button>
-    </div>
+      </AddMovieButton>
+    </AddMovieStyled>
   );
 };
 
-export default AddMovieButton;
+export default AddMovie;

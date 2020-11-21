@@ -7,7 +7,7 @@ import MovieItem from "./MovieItem";
 import SearchBar from "./SearchBar";
 
 //Styles
-import { ListWrapper } from "../styles";
+import { ListWrapper, ListButtonStyled, WatchedListWrapper } from "../styles";
 
 const WatchedList = () => {
   const [query, setQuery] = useState("");
@@ -21,13 +21,14 @@ const WatchedList = () => {
     .map((movie) => <MovieItem movie={movie} />);
 
   return (
-    <>
+    <WatchedListWrapper>
       <button type="button" class="btn">
-        Watched List<span class="badge badge-light">{watchedList.length}</span>
+        {query === "" ? "Watched List " : "Searching for "}
       </button>
+      <ListButtonStyled>{watchedList.length} </ListButtonStyled>
       <SearchBar setQuery={setQuery} />
       <ListWrapper> {watchedList}</ListWrapper>
-    </>
+    </WatchedListWrapper>
   );
 };
 

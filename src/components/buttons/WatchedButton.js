@@ -1,13 +1,14 @@
 import movieStore from "../../stores/movieStore";
+import WatchedButtonStyled from "../../styles";
 
 const WatchedButton = ({ movieWatched }) => {
   const handleWatched = () => {
     movieStore.watchedMovie(movieWatched);
   };
   return (
-    <button type="button" class="btn btn-info" onClick={handleWatched}>
+    <WatchedButtonStyled onClick={handleWatched}>
       {movieWatched.watched === false ? "Watched" : "Unwatched"}
-    </button>
+    </WatchedButtonStyled>
   );
 };
 

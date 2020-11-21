@@ -1,6 +1,7 @@
 import movieStore from "../../stores/movieStore";
+// import DeleteButton from "../../styles";
 
-const DeleteButton = ({ movie }) => {
+const Delete = ({ movie }) => {
   const handleDelete = (event) => {
     event.preventDefault();
     movieStore.deleteMovie(movie);
@@ -12,4 +13,4 @@ const DeleteButton = ({ movie }) => {
   );
 };
 
-export default DeleteButton;
+export default Delete;

@@ -7,7 +7,7 @@ import MovieItem from "./MovieItem";
 import SearchBar from "./SearchBar";
 
 //Styling
-import { ListWrapper } from "../styles";
+import { WatchListWrapper, ListWrapper, ListButtonStyled } from "../styles";
 
 const WatchList = () => {
   const [query, setQuery] = useState("");
@@ -20,18 +20,15 @@ const WatchList = () => {
     )
     .map((movie) => <MovieItem movie={movie} />);
 
-  //   const filteredCookies = cookieStore.cookies.filter((cookie) =>
-  //   cookie.name.toLowerCase().includes(query.toLowerCase())
-  // );
-
   return (
-    <>
+    <WatchListWrapper>
       <button type="button" class="btn">
-        Watch List<span class="badge badge-light">{watchList.length}</span>
+        {query === "" ? "Watch List " : "Searching for "}
       </button>
+      <ListButtonStyled>{watchList.length}</ListButtonStyled>
       <SearchBar setQuery={setQuery} />
       <ListWrapper>{watchList}</ListWrapper>
-    </>
+    </WatchListWrapper>
   );
 };
 
