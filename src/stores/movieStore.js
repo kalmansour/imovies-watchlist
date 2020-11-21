@@ -1,5 +1,5 @@
 import { makeObservable, observable, action } from "mobx";
-import movies from "../components/movies";
+import movies from "../movies";
 
 class MovieStore {
   movies = movies;

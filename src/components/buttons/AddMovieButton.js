@@ -19,13 +19,10 @@ const AddMovieButton = () => {
 
   return (
     <div>
-      <input
-        name="title"
-        type="text"
-        onChange={handleChange}
-        // className="form-control"
-      />
-      <button onClick={handleSubmit}>Add</button>
+      <input name="title" type="text" onChange={handleChange} />
+      <button type="button" class="btn btn-info" onClick={handleSubmit}>
+        Add
+      </button>
     </div>
   );
 };

@@ -5,7 +5,11 @@ const DeleteButton = ({ movie }) => {
     event.preventDefault();
     movieStore.deleteMovie(movie);
   };
-  return <button onClick={handleDelete}>Delete</button>;
+  return (
+    <button type="button" class="btn btn-danger" onClick={handleDelete}>
+      Delete
+    </button>
+  );
 };
 
 export default DeleteButton;
